@@ -12,10 +12,12 @@ router.get("/", async (req, res) => {
     if (search) {
         condition[Sequelize.Op.or] = [
             { title: { [Sequelize.Op.like]: `%${search}%` } },
+            { description: { [Sequelize.Op.like]: `%${search}%` } },
+            { constraints: { [Sequelize.Op.like]: `%${search}%` } },
             { description: { [Sequelize.Op.like]: `%${search}%` } }
         ];
     }
-    let list = await Tutorial.findAll({
+    let list = await Event.findAll({
         order: [['createdAt', 'DESC']]
     });
     res.json(list);
