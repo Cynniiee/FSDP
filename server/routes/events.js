@@ -14,7 +14,8 @@ router.get("/", async (req, res) => {
             { title: { [Sequelize.Op.like]: `%${search}%` } },
             { description: { [Sequelize.Op.like]: `%${search}%` } },
             { constraints: { [Sequelize.Op.like]: `%${search}%` } },
-            { description: { [Sequelize.Op.like]: `%${search}%` } }
+            { description: { [Sequelize.Op.like]: `%${search}%` } },
+            { status: { [Sequelize.Op.like]: `%${search}%` } }
         ];
     }
     let list = await Event.findAll({
