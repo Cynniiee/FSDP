@@ -1,12 +1,23 @@
 const express = require('express');
 const router = express.Router();
-let eventList = [];
-router.post("/", (req, res) => {
-let data = req.body;
-eventList.push(data);
-res.json(data);
+const { Event, Sequelize } = require('../models');
+router.post("/", async (req, res) => {
+    let data = req.body;
+    let result = await Event.create(data);
+    res.json(result);
 });
-router.get("/", (req, res) => {
-res.json(eventList);
+router.get("/", async (req, res) => {
+    let condition = {};
+    let search = req.query.search;
+    if (search) {
+        condition[Sequelize.Op.or] = [
+            { title: { [Sequelize.Op.like]: `%${search}%` } },
+            { description: { [Sequelize.Op.like]: `%${search}%` } }
+        ];
+    }
+    let list = await Tutorial.findAll({
+        order: [['createdAt', 'DESC']]
+    });
+    res.json(list);
 });
 module.exports = router;

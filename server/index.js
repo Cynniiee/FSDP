@@ -16,9 +16,13 @@ app.get("/", (req, res) => {
 const eventRoute = require('.routes/events');
 app.use("/events", eventRoute)
 
-let port = process.env.APP_PORT;
+const db = require('./models');
+db.sequelize.sync({ alter: true }).then(() => {
 
-app.listen(port, () => {
-    console.log(`⚡ Sever running on http://localhost:${port}`);
+    let port = process.env.APP_PORT;
+
+    app.listen(port, () => {
+        console.log(`⚡ Sever running on http://localhost:${port}`);
+    });
 });
 
