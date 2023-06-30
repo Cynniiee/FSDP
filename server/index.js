@@ -13,8 +13,11 @@ app.get("/", (req, res) => {
 });
 
 //Routes
-const eventRoute = require('.routes/events');
-app.use("/events", eventRoute)
+const eventRoute = require('./routes/events');
+app.use("/events", eventRoute);
+
+const rentalRoute = require('./routes/carrentals');
+app.use("/carrentals", rentalRoute);
 
 const db = require('./models');
 db.sequelize.sync({ alter: true }).then(() => {
@@ -22,7 +25,7 @@ db.sequelize.sync({ alter: true }).then(() => {
     let port = process.env.APP_PORT;
 
     app.listen(port, () => {
-        console.log(`⚡ Sever running on http://localhost:${port}`);
+        console.log(`⚡ Server running on http://localhost:${port}`);
     });
 });
 
