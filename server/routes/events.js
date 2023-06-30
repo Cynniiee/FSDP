@@ -1,11 +1,16 @@
+// Events & Vouchers - Events (Zen)
+
 const express = require('express');
 const router = express.Router();
+
 const { Event, Sequelize } = require('../models');
+
 router.post("/", async (req, res) => {
     let data = req.body;
     let result = await Event.create(data);
     res.json(result);
 });
+
 router.get("/", async (req, res) => {
     let condition = {};
     let search = req.query.search;
@@ -23,4 +28,5 @@ router.get("/", async (req, res) => {
     });
     res.json(list);
 });
+
 module.exports = router;
