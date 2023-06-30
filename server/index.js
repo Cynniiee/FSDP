@@ -12,8 +12,14 @@ app.get("/", (req, res) => {
     res.send("EcoRide's server is now running.");
 });
 
-//Routes
-const eventRoute = require('.routes/events');
+// Routes
+
+// Reward Management - Offers (Cynthia)
+const offerRoute = require('./routes/offers');
+app.use("/offers", offerRoute);
+
+// Events & Vouchers - Events (Zen)
+const eventRoute = require('./routes/events');
 app.use("/events", eventRoute)
 
 const db = require('./models');
@@ -25,4 +31,3 @@ db.sequelize.sync({ alter: true }).then(() => {
         console.log(`⚡ Sever running on http://localhost:${port}`);
     });
 });
-
