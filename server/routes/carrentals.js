@@ -1,4 +1,4 @@
-// Product & order management (Jia yee)
+// Client Side - Car Rental - Product & order management (Jia yee)
 
 const express = require('express');
 const router = express.Router();
