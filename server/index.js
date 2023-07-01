@@ -20,7 +20,11 @@ app.use("/offers", offerRoute);
 
 // Events & Vouchers - Events (Zen)
 const eventRoute = require('./routes/events');
-app.use("/events", eventRoute)
+app.use("/events", eventRoute);
+
+// Product & order management (Jia yee)
+const carRentalRoute = require('./routes/carrentals');
+app.use("/carrentals", carRentalRoute);
 
 const db = require('./models');
 db.sequelize.sync({ alter: true }).then(() => {
