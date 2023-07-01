@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Events = sequelize.define("Event", {
+const Events = sequelize.define("Event", {
         title: {
             type: DataTypes.STRING,
             allowNull: false
@@ -13,7 +13,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         status: {
-            type: DataTypes.TEXT,
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        evdate: {
+            type:DataTypes.DATE,
             allowNull: false
         }
     });
