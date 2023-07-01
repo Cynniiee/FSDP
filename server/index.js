@@ -26,12 +26,15 @@ app.use("/events", eventRoute);
 const carRentalRoute = require('./routes/carrentals');
 app.use("/carrentals", carRentalRoute);
 
+const carRoute = require('./routes/cars');
+app.use("/cars", carRoute);
+
 const db = require('./models');
 db.sequelize.sync({ alter: true }).then(() => {
 
     let port = process.env.APP_PORT;
 
     app.listen(port, () => {
-        console.log(`⚡ Sever running on http://localhost:${port}`);
+        console.log(`⚡ Server running on http://localhost:${port}`);
     });
 });

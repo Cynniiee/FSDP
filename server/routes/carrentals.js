@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
     let validationSchema = yup.object().shape({
         carPlateNumber: yup.string().trim().min(3).max(100).required(),
         carLocation: yup.string().trim().min(3).max(500).required(),
-        carBattery: yup.number().integer().min(0).max(100).required()
+        carBattery: yup.number().positive().min(0).max(100).required()
     });
     try {
         await validationSchema.validate(data,
@@ -75,7 +75,7 @@ router.put("/:id", async (req, res) => {
     let validationSchema = yup.object().shape({
         carPlateNumber: yup.string().trim().min(3).max(100).required(),
         carLocation: yup.string().trim().min(3).max(500).required(),
-        carBattery: yup.number().integer().min(0).max(100).required()
+        carBattery: yup.number().positive().min(0).max(100).required()
     });
     try {
         await validationSchema.validate(data,
@@ -96,12 +96,12 @@ router.put("/:id", async (req, res) => {
     });
     if (num == 1) {
         res.json({
-            message: "Order was updated successfully."
+            message: "Rental was updated successfully."
         });
     }
     else {
         res.status(400).json({
-            message: `Cannot update order with id ${id}.`
+            message: `Cannot update rental with id ${id}.`
         });
     }
 
