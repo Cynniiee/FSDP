@@ -6,6 +6,7 @@ import CarRentals from './pages/CarRentals';
 import Cars from './pages/Cars';
 import AddCar from './pages/AddCar';
 import EditCar from './pages/EditCar';
+import AddOffers from './pages/AddOffers';
 
 function App() {
   return (
@@ -28,8 +29,11 @@ function App() {
         <Routes>
           <Route path={"/"}  />
           <Route path={"/offers"} element={<Offers />} />
+          <Route path={"/addOffers"} element={<AddOffers />} />
+
           <Route path={"/"} element={<CarRentals />} />
           <Route path={"/carrentals"} element={<CarRentals />} />
+          
           <Route path={"/"} element={<Cars />} />
           <Route path={"/cars"} element={<Cars />} />
           <Route path={"/addcar"} element={<AddCar />} />

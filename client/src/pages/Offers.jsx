@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Grid, Card, CardContent, Input, IconButton } from '@mui/material';
+import { Box, Typography, Grid, Card, CardContent, Input, IconButton, Button }
+  from '@mui/material';
 import http from '../http';
 import { AccessTime, Search, Clear } from '@mui/icons-material';
 import dayjs from 'dayjs';
 import global from '../global';
+import { Link } from 'react-router-dom';
 
 function Offers() {
   const [offersList, setOffersList] = useState([]);
@@ -49,7 +51,7 @@ function Offers() {
     setSearch('');
     getOffers();
   };
-    
+
 
   useEffect(() => {
     http.get('/offers').then((res) => {
@@ -65,8 +67,8 @@ function Offers() {
       </Typography>
 
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-        <Input value={search} placeholder="Search" 
-         onChange={onSearchChange} onKeyDown={onSearchKeyDown}
+        <Input value={search} placeholder="Search"
+          onChange={onSearchChange} onKeyDown={onSearchKeyDown}
         />
         <IconButton color="primary" onClick={onClickSearch}>
           <Search />
@@ -75,6 +77,14 @@ function Offers() {
         <IconButton color="primary" onClick={onClickClear}>
           <Clear />
         </IconButton>
+
+        <Box sx={{ flexGrow: 1 }} />
+        <Link to="/addOffers" style={{ textDecoration: 'none' }}>
+          <Button variant='contained'>
+            Add an offer
+          </Button>
+        </Link>
+
       </Box>
 
       <Grid container spacing={2}>
