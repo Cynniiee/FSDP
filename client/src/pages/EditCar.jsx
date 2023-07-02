@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import http from '../http';
 import { Box, Typography, TextField, Button } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 function EditCar() {
+    const navigate = useNavigate();
     const { id } = useParams();
 
     const [car, setCar] = useState({
@@ -26,7 +27,7 @@ function EditCar() {
     const formik = useFormik({
         initialValues: car,
         enableReinitialize: true,
-        validationSchema: yup.object().shape({
+        validationSchema: yup.object({
             carPlateNumber: yup.string().trim()
                 .min(8, 'Car plate number must be at least 8 characters')
                 .max(10, 'Car plate number must be at most 10 characters')
@@ -63,11 +64,12 @@ function EditCar() {
             data.carBattery = data.carBattery;
             data.carRates = data.carRates;
             data.carLease = data.carLease.trim();
-            http.post("/cars", data)
-              .then((res) => {
-                console.log(res.data);
-              });
-          }
+            http.put(`/cars/${id}`, data)
+                .then((res) => {
+                    console.log(res.data);
+                    navigate('/cars');
+                });
+        }
 
     });
 
