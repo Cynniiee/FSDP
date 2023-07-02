@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Typography, Grid, Card, CardContent, Input, IconButton, Button }
   from '@mui/material';
 import http from '../http';
-import { AccessTime, Search, Clear } from '@mui/icons-material';
+import { AccessTime, Search, Clear, Edit } from '@mui/icons-material';
 import dayjs from 'dayjs';
 import global from '../global';
 import { Link } from 'react-router-dom';
@@ -95,9 +95,20 @@ function Offers() {
                 <Card>
                   <CardContent>
 
-                    <Typography variant="h6" sx={{ mb: 1 }}>
-                      {offers.brandName}
-                    </Typography>
+
+
+                    <Box sx={{ display: 'flex', mb: 1 }}>
+                      <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                        {offers.brandName}
+                      </Typography>
+
+                      <Link to={`/editOffers/${offers.id}`}>
+
+                        <IconButton color="primary" sx={{ padding: '4px' }}>
+                          <Edit />
+                        </IconButton>
+                      </Link>
+                    </Box>
 
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}
                       color="text.secondary">
