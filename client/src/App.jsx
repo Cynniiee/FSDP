@@ -25,7 +25,7 @@ function App() {
       </AppBar>
       <Container>
         <Routes>
-          <Route path={"/"} element={<Offers />} />
+          <Route path={"/"}  />
           <Route path={"/offers"} element={<Offers />} />
           <Route path={"/"} element={<CarRentals />} />
           <Route path={"/carrentals"} element={<CarRentals />} />

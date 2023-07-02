@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Box, Typography, Grid, Card, CardContent } from '@mui/material';
 import http from '../http';
 import { AccessTime } from '@mui/icons-material';
+import dayjs from 'dayjs';
+import global from '../global';
 
 function Offers() {
   const [offersList, setOffersList] = useState([]);
@@ -29,6 +31,14 @@ function Offers() {
                     <Typography variant="h6" sx={{ mb: 1 }}>
                       {offers.brandName}
                     </Typography>
+
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}
+                      color="text.secondary">
+                      <AccessTime sx={{ mr: 1 }} />
+                      <Typography>
+                        {offers.createdAt}
+                      </Typography>
+                    </Box>
 
                     <Typography sx={{ whiteSpace: 'pre-wrap' }}>
                       {offers.offerTitle}
