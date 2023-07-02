@@ -73,13 +73,14 @@ router.get("/:id", async (req, res) => {
     res.json(offer);
 });
 
-router.put("/:id", async (req, res) => {
+router.put("offers/:id", async (req, res) => {
     let id = req.params.id;
 
     // Check id not found
     let offer = await Offers.findByPk(id);
     if (!offer) {
         res.sendStatus(404);
+        console.log("Unfound ID!")
         return;
     }
 

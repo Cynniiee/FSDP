@@ -11,6 +11,9 @@ import Cars from './pages/Cars';
 import AddCar from './pages/AddCar';
 import EditCar from './pages/EditCar';
 
+import Events from './pages/Events';
+import AddEvent from './pages/AddEvent';
+
 
 function App() {
   return (
@@ -31,7 +34,7 @@ function App() {
       </AppBar>
       <Container>
         <Routes>
-          <Route path={"/"}  />
+          <Route path={"/"} />
           <Route path={"/offers"} element={<Offers />} />
           <Route path={"/addOffers"} element={<AddOffers />} />
           <Route path={"/editOffers/:id"} element={<EditOffers />} />
@@ -43,6 +46,10 @@ function App() {
           <Route path={"/cars"} element={<Cars />} />
           <Route path={"/addcar"} element={<AddCar />} />
           <Route path={"/editcar/:id"} element={<EditCar />} />
+
+          <Route path={"/"} element={<Events />} />
+          <Route path={"/events"} element={<Events />} />
+          <Route path={"/addevent"} element={<AddEvent />} />
         </Routes>
       </Container>
     </Router>

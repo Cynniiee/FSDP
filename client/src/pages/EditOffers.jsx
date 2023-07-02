@@ -54,11 +54,13 @@ function EditOffers() {
         onSubmit: (data) => {
             data.brandName = data.brandName.trim();
             data.offerTitle = data.offerTitle.trim();
-            data.numberOfPoints = data.numberOfPoints.trim();
-            http.post("/offers", data)
+            http.put(`/offers/offers/${id}`, data)
                 .then((res) => {
                     console.log(res.data);
                     navigate("/offers");
+                }).catch(function (err) {
+                    // toast.error(`${err.response.data.message}`);
+                    console.log(err);
                 });
         }
     });
@@ -69,7 +71,7 @@ function EditOffers() {
                 Edit Offer
             </Typography>
 
-            <Box component="form">
+            <Box component="form" onSubmit={ formik.handleSubmit }>
                 <TextField
                     fullWidth margin="normal" autoComplete="off"
                     label="Brand Name"
