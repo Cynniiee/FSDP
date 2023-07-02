@@ -80,6 +80,7 @@ router.put("/:id", async (req, res) => {
     let offer = await Offers.findByPk(id);
     if (!offer) {
         res.sendStatus(404);
+        console.log("Unfound ID!")
         return;
     }
 

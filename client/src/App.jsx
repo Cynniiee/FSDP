@@ -1,11 +1,19 @@
 import './App.css';
 import { Container, AppBar, Toolbar, Typography } from '@mui/material';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
 import Offers from './pages/Offers';
+import AddOffers from './pages/AddOffers';
+import EditOffers from './pages/EditOffers';
+
 import CarRentals from './pages/CarRentals';
 import Cars from './pages/Cars';
 import AddCar from './pages/AddCar';
 import EditCar from './pages/EditCar';
+
+import Events from './pages/Events';
+import AddEvent from './pages/AddEvent';
+
 
 function App() {
   return (
@@ -26,14 +34,22 @@ function App() {
       </AppBar>
       <Container>
         <Routes>
-          <Route path={"/"}  />
+          <Route path={"/"} />
           <Route path={"/offers"} element={<Offers />} />
+          <Route path={"/addOffers"} element={<AddOffers />} />
+          <Route path={"/editOffers/:id"} element={<EditOffers />} />
+
           <Route path={"/"} element={<CarRentals />} />
           <Route path={"/carrentals"} element={<CarRentals />} />
+
           <Route path={"/"} element={<Cars />} />
           <Route path={"/cars"} element={<Cars />} />
           <Route path={"/addcar"} element={<AddCar />} />
           <Route path={"/editcar/:id"} element={<EditCar />} />
+
+          <Route path={"/"} element={<Events />} />
+          <Route path={"/events"} element={<Events />} />
+          <Route path={"/addevent"} element={<AddEvent />} />
         </Routes>
       </Container>
     </Router>
