@@ -9,7 +9,7 @@ import * as yup from 'yup';
 function EditOffers() {
     // useParams hook returns an object of the dynamic params from the current URL
     const { id } = useParams();
-    
+    const navigate = useNavigate();
 
     const [offers, setOffers] = useState({
         brandName: "",
@@ -51,10 +51,11 @@ function EditOffers() {
                 .required('Number of Points is required')
         }),
 
+
         onSubmit: (data) => {
             data.brandName = data.brandName.trim();
             data.offerTitle = data.offerTitle.trim();
-            http.put(`/offers/offers/${id}`, data)
+            http.put(`/offers/${id}`, data)
                 .then((res) => {
                     console.log(res.data);
                     navigate("/offers");
@@ -65,13 +66,29 @@ function EditOffers() {
         }
     });
 
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const deleteOffer = () => {
+        http.delete(`/offers/${id}`)
+            .then((res) => {
+                console.log(res.data);
+                navigate("/offers");
+            });
+    }
+
     return (
         <Box>
             <Typography variant="h5" sx={{ my: 2 }}>
                 Edit Offer
             </Typography>
 
-            <Box component="form" onSubmit={ formik.handleSubmit }>
+            <Box component="form" onSubmit={formik.handleSubmit}>
                 <TextField
                     fullWidth margin="normal" autoComplete="off"
                     label="Brand Name"
@@ -102,9 +119,34 @@ function EditOffers() {
                     helperText={formik.touched.numberOfPoints && formik.errors.numberOfPoints}
                 />
 
+                <Dialog open={open} onClose={handleClose}>
+                    <DialogTitle>
+                        Delete Offer
+                    </DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            Are you sure you want to delete this offer?
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button variant="contained" color="inherit"
+                            onClick={handleClose}>
+                            Cancel
+                        </Button>
+                        <Button variant="contained" color="error"
+                            onClick={deleteOffer}>
+                            Delete
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+
                 <Box sx={{ mt: 2 }}>
                     <Button variant="contained" type="submit">
                         Update Offer
+                    </Button>
+                    <Button variant="contained" sx={{ ml: 2 }} color="error"
+                        onClick={handleOpen}>
+                        Delete
                     </Button>
                 </Box>
             </Box>

@@ -73,7 +73,7 @@ router.get("/:id", async (req, res) => {
     res.json(offer);
 });
 
-router.put("offers/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
     let id = req.params.id;
 
     // Check id not found
