@@ -18,7 +18,7 @@ function EditCar() {
         carRates: "",
         carLease: ""
     });
-    
+
     useEffect(() => {
         http.get(`/cars/${id}`).then((res) => {
             setCar(res.data);
@@ -96,6 +96,7 @@ function EditCar() {
                     error={formik.touched.carPlateNumber && Boolean(formik.errors.carPlateNumber)}
                     helperText={formik.touched.carPlateNumber && formik.errors.carPlateNumber}
                 />
+                
                 <TextField
                     fullWidth margin="normal" autoComplete="off"
                     label="Car's Make & Model"
@@ -105,6 +106,7 @@ function EditCar() {
                     error={formik.touched.carMakeModel && Boolean(formik.errors.carMakeModel)}
                     helperText={formik.touched.carMakeModel && formik.errors.carMakeModel}
                 />
+
                 <TextField
                     fullWidth margin="normal" autoComplete="off"
                     label="Car's Last Maintain Date"
@@ -114,6 +116,7 @@ function EditCar() {
                     error={formik.touched.carLastMaintained && Boolean(formik.errors.carLastMaintained)}
                     helperText={formik.touched.carLastMaintained && formik.errors.carLastMaintained}
                 />
+
                 <TextField
                     fullWidth margin="normal" autoComplete="off"
                     label="Car's Location"
