@@ -5,6 +5,7 @@ import Offers from './pages/Offers';
 import CarRentals from './pages/CarRentals';
 import Cars from './pages/Cars';
 import AddCar from './pages/AddCar';
+import EditCar from './pages/EditCar';
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
           <Route path={"/"} element={<Cars />} />
           <Route path={"/cars"} element={<Cars />} />
           <Route path={"/addcar"} element={<AddCar />} />
-
+          <Route path={"/editcar/:id"} element={<EditCar />} />
         </Routes>
       </Container>
     </Router>

@@ -20,14 +20,17 @@ function AddCar() {
 
     validationSchema: yup.object({
       carPlateNumber: yup.string().trim()
-        .min(3, 'Car plate number must be at least 8 characters')
+        .min(8, 'Car plate number must be at least 8 characters')
         .max(10, 'Car plate number must be at most 10 characters')
         .required('Car plate number is required'),
       carMakeModel: yup.string().trim()
         .min(10, 'Car make and model must be at least 10 characters')
         .max(100, 'Car make and model must be at most 100 characters')
         .required('Car make and model is required'),
-      carLastMaintained: yup.string().required('Car last maintained is required'),
+      carLastMaintained: yup.string().trim()
+        .min(10, 'Car last maintained must be at least 10 characters')
+        .max(100, 'Car last maintained must be at most 100 characters')
+        .required('Car last maintained is required'),
       carLocation: yup.string().trim()
         .min(10, 'Car location must be at least 10 characters')
         .max(100, 'Car location must be at most 100 characters')
