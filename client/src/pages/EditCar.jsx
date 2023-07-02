@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams,useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import http from '../http';
 import { Box, Typography, TextField, Button } from '@mui/material';
 import { useFormik } from 'formik';
@@ -71,7 +71,15 @@ function EditCar() {
                 });
         }
 
+
     });
+    const deleteCar = () => {
+        http.delete(`/cars/${id}`)
+            .then((res) => {
+                console.log(res.data);
+                navigate("/cars");
+            });
+    }
 
 
     return (
@@ -151,6 +159,10 @@ function EditCar() {
                 <Box sx={{ mt: 2 }}>
                     <Button variant="contained" type="submit">
                         Update
+                    </Button>
+                    <Button variant="contained" sx={{ ml: 2 }} color="error"
+                        onClick={deleteCar}>
+                        Delete
                     </Button>
                 </Box>
             </Box>
