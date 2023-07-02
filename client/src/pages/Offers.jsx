@@ -18,14 +18,14 @@ function Offers() {
 
   // Function getOffers: call api to get all offers
   const getOffers = () => {
-    http.get('/tutorial').then((res) => {
-      setTutorialList(res.data);
+    http.get('/offers').then((res) => {
+      setOffersList(res.data);
     });
   };
-  // Function searchTutorials: call api to search tutorials
+  // Function searchOffers: call api to search offers
   const searchOffers = () => {
-    http.get(`/tutorial?search=${search}`).then((res) => {
-      setTutorialList(res.data);
+    http.get(`/offers?search=${search}`).then((res) => {
+      setOffersList(res.data);
     });
   };
 
