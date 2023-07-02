@@ -18,6 +18,7 @@ function EditCar() {
         carRates: "",
         carLease: ""
     });
+    
     useEffect(() => {
         http.get(`/cars/${id}`).then((res) => {
             setCar(res.data);
@@ -71,7 +72,6 @@ function EditCar() {
                 });
         }
 
-
     });
     const deleteCar = () => {
         http.delete(`/cars/${id}`)
@@ -80,7 +80,6 @@ function EditCar() {
                 navigate("/cars");
             });
     }
-
 
     return (
         <Box>
