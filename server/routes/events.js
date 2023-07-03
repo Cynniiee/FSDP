@@ -99,7 +99,7 @@ router.put("/:id", async (req, res) => {
     }
     else {
         res.status(400).json({
-            message: `Cannot update tutorial with id ${id}.`
+            message: `Cannot update event with id ${id}.`
         });
     }
 });

@@ -13,6 +13,7 @@ import EditCar from './pages/EditCar';
 
 import Events from './pages/Events';
 import AddEvent from './pages/AddEvent';
+import EditEvent from './pages/EditEvent';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Link to="/offers" ><Typography>Offers</Typography></Link>
             <Link to="/CarRentals" ><Typography>Car Rentals</Typography></Link>
             <Link to="/Cars" ><Typography>Cars</Typography></Link>
+            <Link to="/Events" ><Typography>Events</Typography></Link>
           </Toolbar>
         </Container>
       </AppBar>
@@ -50,6 +52,7 @@ function App() {
           <Route path={"/"} element={<Events />} />
           <Route path={"/events"} element={<Events />} />
           <Route path={"/addevent"} element={<AddEvent />} />
+          <Route path={"/editevent/:id"} element={<EditEvent />} />
         </Routes>
       </Container>
     </Router>
