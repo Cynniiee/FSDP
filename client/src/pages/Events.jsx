@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Grid, Card, CardContent, Input, IconButton, Button } from '@mui/material';
 import http from '../http';
-import { AccessTime, Search, Clear } from '@mui/icons-material';
+import { AccessTime, Search, Clear, Edit } from '@mui/icons-material';
 import dayjs from 'dayjs';
 import global from '../global';
 import { Link } from 'react-router-dom';
 
 function Events() {
-    const [eventList, setEventList] = useState([]);
+    const [eventList, seteventList] = useState([]);
     const [search, setSearch] = useState('');
     const onSearchChange = (e) => {
         setSearch(e.target.value);
     };
     const getEvents = () => {
-        http.get('/event').then((res) => {
-            setEventList(res.data);
+        http.get('/events').then((res) => {
+            seteventList(res.data);
         });
     };
     const searchEvents = () => {
-        http.get(`/event?search=${search}`).then((res) => {
-            setEventList(res.data);
+        http.get(`/events?search=${search}`).then((res) => {
+            seteventList(res.data);
         });
     };
     useEffect(() => {
@@ -38,9 +38,9 @@ function Events() {
         getEvents();
     }
     useEffect(() => {
-        http.get('/event').then((res) => {
+        http.get('/events').then((res) => {
             console.log(res.data);
-            setEventList(res.data);
+            seteventList(res.data);
         });
     }, []);
     return (
@@ -65,27 +65,34 @@ function Events() {
                     <Button variant='contained'>
                         Add
                     </Button>
-                </Link>
+                </Link> 
             </Box>
             <Grid container spacing={2}>
                 {
-                    eventList.map((event, i) => {
+                    eventList.map((events, i) => {
                         return (
-                            <Grid item xs={12} md={6} lg={4} key={event.id}>
+                            <Grid item xs={12} md={6} lg={4} key={events.id}>
                                 <Card>
                                     <CardContent>
-                                        <Typography variant="h6" sx={{ mb: 1 }}>
-                                            {event.title}
-                                        </Typography>
+                                        <Box sx={{ display: 'flex', mb: 1 }}>
+                                            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                                                {events.title}
+                                            </Typography>
+                                            <Link to={`/editevent/${events.id}`}>
+                                                <IconButton color="primary" sx={{ padding: '4px' }}>
+                                                    <Edit />
+                                                </IconButton>
+                                            </Link>
+                                        </Box>
                                         <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}
                                             color="text.secondary">
                                             <AccessTime sx={{ mr: 1 }} />
                                             <Typography>
-                                                {dayjs(tutorial.createdAt).format(global.datetimeFormat)}
+                                                {dayjs(events.createdAt).format(global.datetimeFormat)}
                                             </Typography>
                                         </Box>
                                         <Typography sx={{ whiteSpace: 'pre-wrap' }}>
-                                            {event.description}
+                                            {events.description}
                                         </Typography>
                                     </CardContent>
                                 </Card>

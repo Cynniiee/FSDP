@@ -12,8 +12,8 @@ function AddEvent() {
       title: "",
       description: "",
       constraints: "",
-      status: "",
-      evdate: ""
+      status: "0",
+      evdate: " "
     },
     validationSchema: yup.object({
       title: yup.string().trim()
@@ -37,7 +37,7 @@ function AddEvent() {
       data.title = data.title.trim();
       data.description = data.description.trim();
       data.constraints = data.constraints.trim();
-      http.post("/event", data)
+      http.post("/events", data)
         .then((res) => {
           console.log(res.data)
           navigate("/events");
@@ -83,11 +83,19 @@ function AddEvent() {
           fullWidth margin="normal" autoComplete="off"
           label="Status"
           name="status"
+          value={formik.values.status}
+          onChange={formik.handleChange}
+          error={formik.touched.status && Boolean(formik.errors.status)}
+          helperText={formik.touched.status && formik.errors.status}
         />
         <TextField
           fullWidth margin="normal" autoComplete="off"
           label="Event Date"
           name="evdate"
+          value={formik.values.evdate}
+          onChange={formik.handleChange}
+          error={formik.touched.evdate && Boolean(formik.errors.evdate)}
+          helperText={formik.touched.evdate && formik.errors.evdate}
         />
         <Box sx={{ mt: 2 }}>
           <Button variant="contained" type="submit">
