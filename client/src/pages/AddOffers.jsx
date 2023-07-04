@@ -6,7 +6,7 @@ import http from '../http';
 import { useNavigate } from 'react-router-dom';
 
 function AddOffers() {
-
+    const navigate = useNavigate();
     // useFormik - create the formik instance with initial values, 
     // validation schema and on submit function
     const formik = useFormik({
@@ -41,9 +41,11 @@ function AddOffers() {
             data.numberOfPoints = data.numberOfPoints.trim();
             http.post("/offers", data)
                 .then((res) => {
+                    // ur navigate not supposed to be here but in the main function only
                     console.log(res.data);
                     navigate("/offers");
-                });
+                })
+                .catch(function (err) {console.log(err);});
         }
     });
 

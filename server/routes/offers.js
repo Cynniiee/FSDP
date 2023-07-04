@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
             { abortEarly: false });
     } catch (err) {
         console.error(err);
-        res.status(400).json({ errors: err.errors });
+        res.status(400).json({message: "Error Here"})
         return;
     }
 
