@@ -1,4 +1,3 @@
-import React, { createElement } from 'react';
 import './App.css';
 import { Container, AppBar, Toolbar, Typography } from '@mui/material';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -16,37 +15,25 @@ import Events from './pages/Events';
 import AddEvent from './pages/AddEvent';
 import EditEvent from './pages/EditEvent';
 
-import NavBar from './NavBar';
-import Footer from './Footer';
-
-// run npm install react-image-slider --force , to install onto your laptop tq
-import ImageSlider from "./ImageSlider";
-
-
 
 function App() {
-  const slides = [
-    {
-      url: "https://picsum.photos/200/300"
-    },
-    {
-      url: "https://picsum.photos/400/600"
-    },
-    {
-      url: "https://picsum.photos/300/500"
-    },
-  ];
-  const containerStyles = {
-    width: "100%",
-    height: "500px",
-    margin: "0 auto",
-  };
   return (
     <Router>
-      <NavBar />
-      <div style={containerStyles}>
-        <ImageSlider slides={slides} />
-      </div>
+      <AppBar position="static" className='AppBar'>
+        <Container>
+          <Toolbar disableGutters={true}>
+            <Link to="/">
+              <Typography variant="h6" component="div">
+                EcoRide
+              </Typography>
+            </Link>
+            <Link to="/offers" ><Typography>Offers</Typography></Link>
+            <Link to="/CarRentals" ><Typography>Car Rentals</Typography></Link>
+            <Link to="/Cars" ><Typography>Cars</Typography></Link>
+            <Link to="/Events" ><Typography>Events</Typography></Link>
+          </Toolbar>
+        </Container>
+      </AppBar>
       <Container>
         <Routes>
           <Route path={"/"} />
@@ -66,12 +53,9 @@ function App() {
           <Route path={"/events"} element={<Events />} />
           <Route path={"/addevent"} element={<AddEvent />} />
           <Route path={"/editevent/:id"} element={<EditEvent />} />
-          <Route path="/" element={<ImageSlider />} />
         </Routes>
       </Container>
-      <Footer/>
     </Router>
-
   );
 }
 export default App;
