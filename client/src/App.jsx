@@ -16,10 +16,6 @@ import Events from './pages/Events';
 import AddEvent from './pages/AddEvent';
 import EditEvent from './pages/EditEvent';
 
-import Pricing from './pages/Pricing';
-import Card from './pages/Card';
-import EditCard from './pages/edit_card';
-import Display from './pages/display_card';
 
 import NavBar from './NavBar';
 import Footer from './Footer';
@@ -54,10 +50,6 @@ function App() {
           <Route path={"/editevent/:id"} element={<EditEvent />} />
           <Route path="/" element={<ImageSlider />} />
 
-          <Route path={"/pricing"} element={<Pricing />} />
-          <Route path={"/card"} element={<Card />} />
-          <Route path={"/edit_card/:id"} element={<EditCard />} />
-          <Route path={"/display_card"} element={<Display />} />
         </Routes>
       </Container>
       <Footer/>
