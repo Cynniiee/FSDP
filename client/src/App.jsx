@@ -71,6 +71,11 @@ function App() {
           <Route path={"/addevent"} element={<AddEvent />} />
           <Route path={"/editevent/:id"} element={<EditEvent />} />
           <Route path="/" element={<ImageSlider />} />
+
+          <Route path={"/pricing"} element={<Pricing />} />
+          <Route path={"/card"} element={<Card />} />
+          <Route path={"/edit_card/:id"} element={<EditCard />} />
+          <Route path={"/display_card"} element={<Display />} />
         </Routes>
       </Container>
       <Footer/>
