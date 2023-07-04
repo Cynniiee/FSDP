@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-logo">
-        <img src={logo} alt="EcoRide" className='logoImgFooter'/>
+        <Link to="/"><img src={logo} alt="EcoRide" className='logoImgFooter'/></Link>
       </div>
       <div className="footer-links">
         <ul>

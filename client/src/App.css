@@ -9,13 +9,13 @@
   padding-left: 10rem;
 }
 
-.logoImg{
-  width: 20% ;
+.logoImg {
+  width: 20%;
 }
 
-.LinkItems ul{
+.LinkItems ul {
   display: flex;
-  list-style-type: none ;
+  list-style-type: none;
 }
 
 .LinkItems ul li {
@@ -51,19 +51,29 @@
 }
 
 /* For Nav Bar content spacing */
-.space{
+.space {
   margin-left: 15%;
 }
 
 /* Footer Bar css */
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding-bottom: 5rem; /* Height of the footer */
+}
+
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
-  height: 8%;
+  width: 100%;
+  height: 5rem;
   background-color: #37B6FF;
-  padding: 10px;
 }
 
 .footer-logo {
@@ -71,17 +81,17 @@
   padding-left: 5%;
 }
 
-.logoImgFooter{
+.logoImgFooter {
   width: 15%;
 }
 
 .footer-links {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
-.footer-links ul{
-  list-style-type: none ;
+.footer-links ul {
+  list-style-type: none;
   display: flex;
 }
 

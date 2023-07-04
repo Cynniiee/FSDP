@@ -93,3 +93,27 @@ const ImageSlider = ({ slides }) => {
 };
 
 export default ImageSlider;
+
+/*
+code for App.jsx, imageslider
+const slides = [
+    {
+      url: "https://picsum.photos/200/300"
+    },
+    {
+      url: "https://picsum.photos/400/600"
+    },
+    {
+      url: "https://picsum.photos/300/500"
+    },
+  ];
+  const containerStyles = {
+    width: "100%",
+    height: "500px",
+    margin: "0 auto",
+  };
+
+  <div style={containerStyles}>
+        <ImageSlider slides={slides} />
+      </div>
+*/

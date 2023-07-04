@@ -22,31 +22,15 @@ import Footer from './Footer';
 // run npm install react-image-slider --force , to install onto your laptop tq
 import ImageSlider from "./ImageSlider";
 
-
+import Pricing from './pages/Pricing';
+import Card from './pages/Card';
+import EditCard from './pages/edit_card';
+import Display from './pages/display_card';
 
 function App() {
-  const slides = [
-    {
-      url: "https://picsum.photos/200/300"
-    },
-    {
-      url: "https://picsum.photos/400/600"
-    },
-    {
-      url: "https://picsum.photos/300/500"
-    },
-  ];
-  const containerStyles = {
-    width: "100%",
-    height: "500px",
-    margin: "0 auto",
-  };
   return (
     <Router>
       <NavBar />
-      <div style={containerStyles}>
-        <ImageSlider slides={slides} />
-      </div>
       <Container>
         <Routes>
           <Route path={"/"} />
@@ -67,6 +51,11 @@ function App() {
           <Route path={"/addevent"} element={<AddEvent />} />
           <Route path={"/editevent/:id"} element={<EditEvent />} />
           <Route path="/" element={<ImageSlider />} />
+
+          <Route path={"/pricing"} element={<Pricing />} />
+          <Route path={"/card"} element={<Card />} />
+          <Route path={"/edit_card/:id"} element={<EditCard />} />
+          <Route path={"/display_card"} element={<Display />} />
         </Routes>
       </Container>
       <Footer/>
