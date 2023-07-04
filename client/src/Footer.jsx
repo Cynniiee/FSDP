@@ -5,11 +5,6 @@ import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
-  const [isVisible, setVisible] = useState(false);
-
-  const handleClick = () => {
-    setVisible(!isVisible);
-  };
 
   return (
     <div className="footer">
@@ -23,11 +18,7 @@ const Footer = () => {
           <li><Link to="#" ><Typography variant="h6" fontWeight="bold">Contact Us</Typography></Link></li>
         </ul>
       </div>
-      <button
-        className="go-to-top"
-        onClick={handleClick}
-        disabled={isVisible}
-      >
+      <button className="go-to-top">
         Go to top
       </button>
     </div>

@@ -114,6 +114,6 @@ const slides = [
   };
 
   <div style={containerStyles}>
-        <ImageSlider slides={slides} />
-      </div>
+    <ImageSlider slides={slides} />
+  </div>
 */
