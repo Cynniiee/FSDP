@@ -1,13 +1,115 @@
-.AppBar a {
-  color: inherit;
-  text-decoration: none;
-  margin-right: 16px;
+.NavBar {
+  display: flex;
+  align-items: center;
+  background-color: #37B6FF;
 }
 
-  .AppBar a:hover {
-    color: darkblue;
-  }
+.logo {
+  color: white;
+  padding-left: 10rem;
+}
 
-  .AppBar {
-    color: lightblue;
-  }
+.logoImg{
+  width: 20% ;
+}
+
+.LinkItems ul{
+  display: flex;
+  list-style-type: none ;
+}
+
+.LinkItems ul li {
+  margin: 0 1.2rem;
+}
+
+.LinkItems ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.LinkItems ul li a:hover {
+  color: #114c6e;
+}
+
+.LoginButton {
+  background-color: #37B6FF;
+  border-width: 3px;
+  border-color: white white;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  margin-left: 2%;
+  font-weight: bolder;
+}
+
+.LoginButton:hover {
+  background-color: white;
+  color: #37B6FF;
+  transition: 0.2s;
+}
+
+/* For Nav Bar content spacing */
+.space{
+  margin-left: 15%;
+}
+
+/* Footer Bar css */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8%;
+  background-color: #37B6FF;
+  padding: 10px;
+}
+
+.footer-logo {
+  float: left;
+  padding-left: 5%;
+}
+
+.logoImgFooter{
+  width: 15%;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center; 
+}
+
+.footer-links ul{
+  list-style-type: none ;
+  display: flex;
+}
+
+.footer-links ul li {
+  margin: 0 1.2rem;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.go-to-top {
+  position: absolute;
+  bottom: 27%;
+  right: 5%;
+  background-color: #37B6FF;
+  color: white;
+  border-color: white;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.go-to-top:hover {
+  opacity: 1;
+  background-color: white;
+  color: #37B6FF;
+}
