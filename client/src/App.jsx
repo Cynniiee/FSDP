@@ -22,6 +22,10 @@ import Footer from './Footer';
 // run npm install react-image-slider --force , to install onto your laptop tq
 import ImageSlider from "./ImageSlider";
 
+import Pricing from './pages/Pricing';
+import Card from './pages/Card';
+import EditCard from './pages/edit_card';
+import Display from './pages/display_card';
 
 
 function App() {
